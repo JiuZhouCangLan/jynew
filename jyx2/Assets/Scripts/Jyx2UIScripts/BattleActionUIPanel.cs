@@ -142,16 +142,18 @@ public partial class BattleActionUIPanel : Jyx2_UIBase
 
 	private void changeCurrentZhaoshiSelection(int number)
 	{
-		var curBtn = zhaoshiList.ElementAt(number);
-		var curText = getButtonText(curBtn.Key);
-		if (curText != null)
-		{
-			foreach (var btn in zhaoshiList)
+		if(zhaoshiList.Count() > number){
+			var curBtn = zhaoshiList.ElementAt(number);
+			var curText = getButtonText(curBtn.Key);
+			if (curText != null)
 			{
-				var text = getButtonText(btn.Key);
-				if (text != null)
-					text.color = btn.Key == curBtn.Key ?
-						selectedButtonColor() : normalButtonColor();
+				foreach (var btn in zhaoshiList)
+				{
+					var text = getButtonText(btn.Key);
+					if (text != null)
+						text.color = btn.Key == curBtn.Key ?
+							selectedButtonColor() : normalButtonColor();
+				}
 			}
 		}
 	}
